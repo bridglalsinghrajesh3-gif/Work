@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AR Build Works General Contractor LTD | Diamond, Trinidad</title>
+  <style>
+    :root {
+      --primary: #1a2634;
+      --accent: #e67e22;
+      --accent-hover: #cf6d17;
+      --light: #f4f6f8;
+      --dark: #111827;
+      --text: #374151;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation */
+    header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 1rem 5%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(26, 38, 52, 0.78), rgba(26, 38, 52, 0.78)),
+                  url('https://unsplash.com') center/cover no-repeat;
+      color: var(--white);
+      padding: 6rem 5%;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      max-width: 800px;
+      margin: 0 auto 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 650px;
+      margin: 0 auto 2rem;
+      color: #e5e7eb;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.85rem 1.8rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--white);
+      margin-left: 0.75rem;
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    /* Sections */
+    section {
+      padding: 4.5rem 5%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: #6b7280;
+    }
+
+    /* Services Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card-body h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Gallery / Projects */
+    .bg-light {
+      background: var(--light);
+    }
+
+    /* Contact & Location */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .info-box {
+      background: var(--primary);
+      color: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    .info-box h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .info-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .info-item strong {
+      display: block;
+      color: #d1d5db;
+      font-size: 0.9rem;
+    }
+
+    form {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #d1d5db;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+
+    .map-container {
+      margin-top: 2rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #9ca3af;
+      text-align: center;
+      padding: 2rem 5%;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      nav { display: none; }
+      .btn-outline { margin-left: 0; margin-top: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">AR BUILD WORKS <span>LTD</span></div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact &amp; Location</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Quality Construction &amp; General Contracting in Trinidad &amp; Tobago</h1>
+    <p>From residential builds and renovations to commercial structural work, AR Build Works General Contractor LTD delivers reliable craftsmanship on schedule.</p>
+    <a href="#contact" class="btn">Request a Free Quote</a>
+    <a href="tel:+18687585706" class="btn btn-outline">Call +1 868-758-5706</a>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="section-title">
+      <h2>Our Contracting Services</h2>
+      <p>Comprehensive building solutions tailored for homeowners and businesses across South Trinidad and beyond.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <img src="https://unsplash.com" alt="Residential & Commercial Construction">
+        <div class="card-body">
+          <h3>Residential &amp; Commercial Builds</h3>
+          <p>Turnkey new construction from foundation excavation and concrete casting to roofing and interior finishes.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://unsplash.com" alt="Structural Renovations & Extensions">
+        <div class="card-body">
+          <h3>Renovations &amp; Extensions</h3>
+          <p>Home additions, structural alterations, masonry, tiling, ceiling installations, and full property upgrades.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://unsplash.com" alt="Civil & Site Works">
+        <div class="card-body">
+          <h3>Civil &amp; Site Works</h3>
+          <p>Retaining walls, drainage systems, concrete driveways, steel fabrication, and site preparation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section -->
+  <section id="projects" class="bg-light">
+    <div class="section-title">
+      <h2>Recent Project Highlights</h2>
+      <p>Built with durable materials engineered for Caribbean weather conditions.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <img src="unnamed.jpg" alt="Modern Family Residence">
+        <div class="card-body">
+          <h3>Modern Family Residence</h3>
+          <p>Complete two-story reinforced concrete home build with custom exterior finishes.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src= alt="Commercial Warehouse Framing">
+        <div class="card-body">
+          <h3>Commercial Facility &amp; Framing</h3>
+          <p>Heavy-duty steel and concrete structural construction for commercial operations.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src= alt="Interior Remodeling">
+        <div class="card-body">
+          <h3>Full Interior Remodel</h3>
+          <p>Kitchen, living space, gypsum ceilings, electrical, and modern flooring overhaul.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Map Section -->
+  <section id="contact">
+    <div class="section-title">
+      <h2>Contact Us &amp; Location</h2>
+      <p>Reach out for site visits, project estimates, and consultations.</p>
+    </div>
+
+    <div class="contact-wrapper">
+      <div class="info-box">
+        <h3>AR Build Works General Contractor LTD</h3>
+        <div class="info-item">
+          <strong>Address</strong>
+          13 Harripaul Village, Diamond, Trinidad &amp; Tobago
+        </div>
+        <div class="info-item">
+          <strong>Phone / Text / WhatsApp</strong>
+          <a href="tel:+18687585706" style="color: #fff;">+1 868-758-5706</a>
+        </div>
+        <div class="info-item">
+          <strong>Operating Hours</strong>
+          Monday – Friday: Open 24 Hours
+        </div>
+        <div class="info-item">
+          <strong>Google Maps</strong>
+          <a href="https://google.com" target="_blank" style="color: var(--accent);">Open in Google Maps &rarr;</a>
+        </div>
+      </div>
+
+      <form id="quoteForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required />
+        </div>
